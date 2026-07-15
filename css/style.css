@@ -1,0 +1,234 @@
+[hidden] {
+  display: none !important;
+}
+
+/* ===== Reset et base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #eaf4fb;
+  color: #1e293b;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header ===== */
+.site-header {
+  background-color: #0284c7;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.site-header h1 {
+  font-size: 1.8rem;
+}
+
+/* ===== Navigation ===== */
+.site-nav {
+  background-color: #0369a1;
+  text-align: center;
+  padding: 0.6rem;
+}
+
+.site-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  text-decoration: underline;
+}
+
+/* ===== Main content ===== */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  gap: 2rem;
+}
+
+/* ===== Formulaire de recherche ===== */
+.search-section {
+  width: 100%;
+  max-width: 500px;
+}
+
+#weather-form {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  background: white;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#weather-form label {
+  width: 100%;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+#city-input {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#city-input:focus {
+  outline: none;
+  border-color: #0284c7;
+}
+
+/* Style appliqué dynamiquement en JS quand le champ est invalide */
+#city-input[aria-invalid="true"] {
+  border-color: #dc2626;
+  background-color: #fef2f2;
+}
+
+#weather-form button {
+  padding: 0.6rem 1.4rem;
+  background-color: #0284c7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#weather-form button:hover {
+  background-color: #026a9e;
+}
+
+/* ===== Zone de résultat ===== */
+.result-section {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== Spinner de chargement ===== */
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: #0284c7;
+}
+
+.loading::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 3px solid #cbd5e1;
+  border-top-color: #0284c7;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Carte météo (résultat) ===== */
+.weather-card {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1rem;
+}
+
+.weather-card h2 {
+  grid-column: 1 / -1;
+  font-size: 1.4rem;
+  color: #0369a1;
+  margin-bottom: 0.5rem;
+}
+
+.weather-card .data-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-card .data-item .label {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.weather-card .data-item .value {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* ===== Message d'erreur ===== */
+.error-message {
+  width: 100%;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  background-color: #f1f5f9;
+}
+
+/* ===== Responsive : tablette ===== */
+@media (max-width: 768px) {
+  .site-header h1 {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ===== Responsive : smartphone ===== */
+@media (max-width: 480px) {
+  #weather-form {
+    flex-direction: column;
+  }
+
+  #weather-form button {
+    width: 100%;
+  }
+
+  .weather-card {
+    grid-template-columns: 1fr;
+  }
+}
