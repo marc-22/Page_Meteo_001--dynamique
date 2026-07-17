@@ -7,12 +7,15 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
+
+  <header class="header-page">
     <h1>🌤️ Tableau de Bord Météo</h1>
   </header>
+
   <nav class="site-nav" aria-label="Navigation principale">
     <a href="#weather-form">Rechercher une ville</a>
   </nav>
+
   <main>
     <section class="search-section" aria-label="Recherche de ville">
       <form id="weather-form">
@@ -27,17 +30,28 @@
         <button type="submit">Rechercher</button>
       </form>
     </section>
+
     <section class="result-section" aria-label="Résultat météo">
       <div id="loading" class="loading" hidden>
+        Chargement...
       </div>
+
+      <div id="location-choices" class="location-choices" hidden>
+        
+      </div>
+
       <div id="weather-card" class="weather-card" hidden>
+      
       </div>
+
       <div id="error-message" class="error-message" hidden></div>
     </section>
   </main>
-  <footer class="site-footer">
-    <p>Un travail réalisé dans le cadre du cours LOG3500 — ISTEAH, Été 2026</p>
+
+  <footer class="footer-page">
+    <p>Projet réalisé dans le cadre du cours LOG3500 — ISTEAH, Été 2026</p>
   </footer>
+
   <script src="js/app.js"></script>
 </body>
 </html>
